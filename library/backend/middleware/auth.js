@@ -1,1 +1,28 @@
+import jwt from 'jsonwebtoken';
 
+export const verifyToken = (req, res, next) => {
+  let token = req.header("Authorization");
+
+  if (!token) return res.status(403).json({ error: "Access Denied." });
+
+  if (token.startsWith("Bearer ")) {
+    token = token.slice(7, token.length).trimLeft();
+  }
+
+  try {
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = verified; // Attach user payload to request
+    next();
+  } catch (err) {
+    res.status(401).json({ error: "Invalid Token." });
+  }
+};
+
+export const requireAdmin = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.role !== "ADMIN") {
+      return res.status(403).json({ error: "Admin resources access denied." });
+    }
+    next();
+  });
+};
