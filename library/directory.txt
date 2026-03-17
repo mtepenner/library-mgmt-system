@@ -1,0 +1,29 @@
+library-app/
+├── backend/
+│   ├── prisma/
+│   │   └── schema.prisma           # (Provided in Step 1)
+│   ├── controllers/
+│   │   ├── authController.js       # (Provided in Step 1)
+│   │   └── bookController.js       # Handles adding/fetching books
+│   ├── middleware/
+│   │   └── auth.js                 # JWT & Role validation (Below)
+│   ├── routes/
+│   │   ├── authRoutes.js           # Routes for /register and /login
+│   │   └── bookRoutes.js           # Routes for /books
+│   ├── package.json                # Backend dependencies (Below)
+│   ├── server.js                   # Express Entry Point (Below)
+│   └── .env                        # Environment variables (DB URL, JWT Secret)
+│
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   │   ├── BookCatalog.jsx     # (Provided in Step 1)
+    │   │   ├── AdminDashboard.jsx  # Admin controls (Below)
+    │   │   ├── Login.jsx           # User/Admin login form
+    │   │   └── ProtectedRoute.jsx  # React Router role guard
+    │   ├── services/
+    │   │   └── api.js              # Axios config (Below)
+    │   ├── App.jsx                 # Main Routing (Provided in Step 1)
+    │   └── main.jsx                # React DOM entry
+    ├── package.json                # Frontend dependencies (Below)
+    └── tailwind.config.js          # Tailwind styling config
