@@ -1,6 +1,6 @@
 # 📚 Library Management System
 
-A full-stack solution for managing library catalogs, user favorites, and physical pickup schedules with role-based access control.
+The Library Management System is a full-stack React and Node.js application for role-based catalog management. Visitors can search an alphabetized collection, save favorites, and schedule book pickups. Administrators use a secure dashboard to manage books and genres, authorized by a unique one-time Admin ID system.
 
 ## 🏗️ Architecture
 The project is split into two main components:
